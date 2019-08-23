@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <style>
+    div{
+      margin:20px 0;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <pre content-load id="json-data">
+    <div id="species"></div>
+  </pre>
+
+  <script>
+
+    d3.csv("Urban_Park_Ranger_Animal_Condition_Response.csv", function(error, data) {
+      if (error) throw error;
+
+      coyotes = data.filter(function(d){return d.species_description == "Coyote"})
+      console.log('coyotes',coyotes) // 6
+
+      police = data.filter(function(d){return d.Police_Response== "true"})
+      console.log('police', police) // 28
+
+      esu = data.filter(function(d){return d.ESU_Response== "true"})
+      console.log('esu', esu) // 6 [New York City Police Department Emergency Service Unit]
+
+      pep = data.filter(function(d){return d.PEP_Response== "true"})
+      console.log('pep', pep) // 26 [Post-Exposure Prophylaxis? https://www1.nyc.gov/site/doh/health/health-topics/post-exposure-prophylaxis-pep.page]
+
+      //species_status
+      console.log('data',data)
+
+        var specs = d3.nest()
+            .key(d => d.year_init_call)
+            .key(d => d.month_init_call)
+            // .key(d => d.species_status) // native/invasive
+            // .key(d => d.animal_class)
+            // .key(d =>d.age)
+            // .key(d => d.animal_condition)
+            // .key(d => d.final_ranger_action)
+            // .key(d => d.species_description)
+            .rollup(function(v) { return d3.sum(v, function(d) { return d.number_animals; }); })
+            // .rollup(function(v){return v.length})
+            .object(data)
+
+          var specinfo = JSON.stringify(specs,null,2);
+          $("#species").html(specinfo)
+
+    })
+
+  </script>
+</body>
+</html>

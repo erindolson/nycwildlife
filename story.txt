@@ -1,0 +1,54 @@
+STEPS
+
+harbor porpoise on beach, DOA
+
+coyote - related sitings (same day) - one unfounded, one found
+
+all the racoons
+
+native (900) v invasive (18), exotic (13), domestic (109).
+most exotic (beared dragon, boa constrictor are unfounded
+BUT not all - e.g. Chinese Silky Chicken [crazy looking]
+https://en.wikipedia.org/wiki/Silkie#/media/File:Silky_bantam.jpg
+https://www.redwallpapers.com/wallpaper/silkie-chicken-feathers-free-stock-photo-image-wallpaper
+
+and Alligator Snapping Turtle [also crazy looking - kind of like a dinosaur],
+https://en.wikipedia.org/wiki/Alligator_snapping_turtle#/media/File:Alligator_snapping_turtle.jpg
+https://freerangestock.com/photos/23233/alligator-snapping-turtle.html
+https://www.dreamstime.com/photos-images/alligator-snapping-turtle.html
+
+Dutch Blue Love Bird [beauty])
+https://en.wikipedia.org/wiki/Rosy-faced_lovebird_colour_genetics#/media/File:DenglerSW-Peach-faced-Lovebird-20051026-1280x960.jpg
+
+rehabilitated: silver haired bat
+Relocated/Condition Corrected: Seal, Black Skimmer, Ruddy Duck (blue beak!), Red-Eyed Vireo (bird with red eyes)
+-> ACC: Northern Gannet (pretty, huge bird - nearly as big as an albatross)
+
+domestic dogs and cats -> ACC
+
+Goose - White Pygmy -> ACC
+
+Northern Saw-Whet Owl (adorable! very small, Robin-sized) -> rehabilitated
+
+most calls received July-Nov
+
+Condition:
+Injured: 119,
+N/A: 206,
+Unhealthy: 383,
+Healthy: 211,
+DOA: 127
+
+Age:
+Adult: 738,
+Juvenile: 244,
+Infant: 65,
+Combinations: 15
+
+No infant DOA. Most DOA are adults.
+
+
+regex to see how many 'locations' contain baseball, playground, beach, pool, pond, lake, woods, garden, lawn, parking lot, tennis court, golf course, Delacorte Theater, trail, soccer field, picnic area, pier, rink, docks
+
+a lot of racoons in Delacorte Theater, ha
+deer found at sewage plant DOA :(

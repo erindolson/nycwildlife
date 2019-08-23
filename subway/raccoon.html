@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<style>
+html,body{
+  margin:0;
+}
+body{
+  background: #010101;
+}
+#container{
+  position: absolute;
+  top:0;
+  left:0;
+  bottom: 0;
+  right:0;
+  background-image:url('../img/delacorte_raccoon.png');
+  background-color: #000;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position:bottom;
+}
+#boroughs {
+  stroke: #555;
+	stroke-width: 1px;
+	fill: #000;
+	opacity:1;
+}
+#surrounding{
+  fill: #999;
+}
+#parks {
+  stroke: none;
+	stroke-width: 0px;
+	fill: green;
+	opacity:1;
+	position:absolute;
+	top:0;
+	left:0;
+}
+
+#leftpane{
+  position: absolute;
+  top:0;
+  left:0;
+  bottom: 0;
+  width:20%;
+  height:100%;
+  background: #fff;
+}
+#innerpane{
+  padding:10%;
+}
+
+
+</style>
+
+<script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+<script src="//d3js.org/d3-tile.v0.0.min.js"></script>
+<script src="http://d3js.org/topojson.v0.min.js"></script>
+
+<body>
+<div id="container">
+  <div id="leftpane">
+    <div id="innerpane">
+      <h1>Urban Park Ranger Animal Condition Response</h1>
+      <p>A large number of raccoons were found in or around the Delacorte Theater.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

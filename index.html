@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>nyc wildlife</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+  <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
+  <style>
+    body { margin:0; padding:0; }
+    #map { position: absolute; top:0; bottom:0; right:0; left:0; }
+    .leaflet-marker-icon{opacity: .75;}
+  </style>
+</head>
+<body>
+  <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
+
+  <div id="map"></div>
+  <script>
+
+  var map = L.map('map', {
+    center: [40.700421,-73.855356],
+    zoom: 11,
+    scrollWheelZoom: true
+  });
+
+  L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
+  }).addTo(map);
+
+  // display Stamen basemap tiles with colored terrain and labels
+  // L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png', {
+  //   attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
+  // }); // EDIT - insert or remove ".addTo(map)" before last semicolon to display by default
+
+  // upload CSV file from local directory and display latitude and longitude coordinates as default blue markers on map
+
+  var icon = L.icon({
+    iconUrl: 'img/fish.png',
+    iconSize: [32,32]
+  });
+
+
+  var circle = new L.CircleMarker({
+            color: 'blue',
+            fillColor: '#bbf',
+            fillOpacity: 0.5
+        });
+        //circle.bindPopup(title);
+        //marker.addLayer(circle);
+
+        //var marker = new L.Marker(new L.LatLng(a[0], a[1]), { title: title });
+        //marker.bindPopup(title);
+        //markers.addLayer(marker);
+
+  omnivore.csv('speciswithxy.csv')
+  .on('ready',function(layer) {
+    this.eachLayer(function(marker){
+      marker.setIcon(icon);
+
+      if(marker.feature.properties.animal_condition == "N/A"){
+        var popup = marker.feature.properties.age
+        + ' ' + marker.feature.properties.species_description
+        + '<br/>in ' + marker.feature.properties.property;
+      }else{
+        var popup = marker.feature.properties.animal_condition
+        + ' ' + marker.feature.properties.age
+        + ' ' + marker.feature.properties.species_description
+        + '<br/>in ' + marker.feature.properties.property;
+      }
+      marker.bindPopup(popup);
+    });
+  }).addTo(map);
+
+
+
+  </script>
+</body>
+</html>
